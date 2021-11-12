@@ -11,11 +11,36 @@
       </div>
     </header>
     <div id="app"></div>
-    <script type="text/javascript">
-      console.log('Hello World!!!')
+    <script>
+      // hoisting = JavaScript engine move variable declaration (e) to the top (see example below)
+      // var e;
+      // console.log(e);
+      // e = 60; 
+      // console.log(e);
+      console.log(e);
+      var e = 60;
+      console.log(e);
+
+      // decalaration and initialisation
+      var a = 99;
+      var b = 11;
+      var c = 55;
+
+      // decalaration
+      var d;
+      
+      console.log(a, b, c, d);
+
+      // overwrite values
+      a = {};
+      b = [];
+      c = '55';
+
+      // initialisation
+      d = 66;
+
+      console.log(a, b, c, d);
     </script>
-    <noscript>
-      <h1>Your JavaScript is disabled!</h1>
-    </noscript>
+    
   </body>
 </html>
