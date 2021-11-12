@@ -12,24 +12,19 @@
     </header>
     <div id="app"></div>
     <script>
-      // let defines a symbol or variable available only within { } or block scope
-      {
-        var a = 123;
+      const b = {
+        name: 'JavaScript'
       }
-      console.log(a);
-      {
-        let b = 456;
-        // b = 22;
-        // console.log(b);
-      }
+      // this is not permitted
+      // b = 12;
+      // but this is permitted
+      b.name = "I can be mutated"
       console.log(b);
 
-      // let doesn't allow hoisting a symbol or variable
-      console.log(c);
-      let c = 99;
-
-      // for () {}
-      // if () {}
+      // const it is not a true immutable symbol or variable, const symbol or variable can be mutated, see above
+      const a = 1;
+      // this is not permitted
+      a = 2;
     </script>      
   </body>
 </html>
