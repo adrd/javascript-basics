@@ -12,35 +12,24 @@
     </header>
     <div id="app"></div>
     <script>
-      // hoisting = JavaScript engine move variable declaration (e) to the top (see example below)
-      // var e;
-      // console.log(e);
-      // e = 60; 
-      // console.log(e);
-      console.log(e);
-      var e = 60;
-      console.log(e);
+      // let defines a symbol or variable available only within { } or block scope
+      {
+        var a = 123;
+      }
+      console.log(a);
+      {
+        let b = 456;
+        // b = 22;
+        // console.log(b);
+      }
+      console.log(b);
 
-      // decalaration and initialisation
-      var a = 99;
-      var b = 11;
-      var c = 55;
+      // let doesn't allow hoisting a symbol or variable
+      console.log(c);
+      let c = 99;
 
-      // decalaration
-      var d;
-      
-      console.log(a, b, c, d);
-
-      // overwrite values
-      a = {};
-      b = [];
-      c = '55';
-
-      // initialisation
-      d = 66;
-
-      console.log(a, b, c, d);
-    </script>
-    
+      // for () {}
+      // if () {}
+    </script>      
   </body>
 </html>
