@@ -5,15 +5,17 @@ app.innerHTML = '<h1>JavaScript Basics</h1>';
 
 // ----
 
-console.log(parseInt('55px', 10));         // 55
-console.log(parseInt('55px', 2));          // NaN
-console.log(parseInt('0110', 2));          // 6
+const result = Number('55px');
 
-console.log(parseInt('55.9999px', 10));    // 55
-console.log(parseFloat('55.9999px'));      // 55.9999
-console.log(parseFloat('55.9999px') * 10); // 559.999
+// isNan() checks "NaN" inside
+console.log(window.isNaN(result));             // true
+console.log(window.isNaN('I am a string!'));   // true
 
-console.log(Number('55e10'));              // 550000000000
-console.log(Number('55.9999'));            // 55.9999
-console.log(+'99.5555');                   // 99.5555, convert a string number to a number
-console.log(9 + +'99.5555');               // 108.5555
+console.log(Number.isNaN(result));             // true
+console.log(Number.isNaN('I am a string!'));   // false
+
+console.log(Number.isInteger(66));             // true
+console.log(Number.isInteger(66.99));          // false
+
+console.log(Number.NaN);                       // NaN
+console.log(Number.isNaN(Number.NaN));         // true
