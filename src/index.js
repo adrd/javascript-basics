@@ -5,26 +5,18 @@ app.innerHTML = '<h1>JavaScript Basics</h1>';
 
 // ----
 
-const number = 1;
-let result; // undefined
+// literal syntax
+const literalNumber = 99;
+console.log(literalNumber);
 
-switch (number) {
-    case 1: {
-        const text = 'One';
-        result = text;
-        break;
-    }
-    case 99: {
-        const text = 'Ninety-Nine';
-        result = text;
-        break;
-    }
-    case 1000:
-        result = 'One-Thousand'
-        break;
-    default:
-        result = 'No-Match';
-        break;
-}
+// function syntax
+// perform a type-conversion in a non-constructor context
+console.log(Number(55));          // 55
+console.log(Number('33'));        // 33
+console.log(Number('44px'));      // NaN
 
-console.log(result);
+// constructor syntax, creates a wrapper Object
+// avoid using it
+console.log(Number(66));          // 66
+console.log(new Number(66));      // Number {66}
+console.log(new Number('44px'));  // Number {NaN}
