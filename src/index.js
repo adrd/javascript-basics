@@ -5,14 +5,18 @@ app.innerHTML = '<h1>JavaScript Basics</h1>';
 
 // ----
 
-console.log(typeof 99);                           // number
-console.log(typeof 99.66);                        // number
-console.log(99 instanceof Number);                // false
-console.log(Number('99') instanceof Number);      // false
-console.log(new Number('99') instanceof Number);  // true
+console.log(Number.prototype);
+console.log(99.12345678);
 
-console.log({}.toString());                       // [object Object]
-console.log(Object.prototype.toString());         // [object Object]
-console.log(Object.prototype.toString.call(99));  // [object Number], this is the safe way to detect if something is of a particular type
-console.log(Object.prototype.toString.call(99).slice(8, -1) === 'Number');  // true
-console.log(Object.prototype.toString.call(99) === '[object Number]');      // true
+console.log((99.12345678).toFixed());               // 99, String number
+console.log((99.12345678).toFixed(2));              // 99.12, String number
+console.log((99.12345678).toFixed(4));              // 99.1235, String number
+console.log(99..toFixed(4));                        // 99.0000, String number
+console.log((99).toFixed(4));                       // 99.0000, String number
+console.log(parseFloat((99.12345678).toFixed(4)));  // 99.1235, Number number
+
+console.log((99.12345678).toPrecision(2));          // 99, String number
+console.log((99.12345678).toPrecision(4));          // 99.12, String number
+console.log((99.12345678).toPrecision(5));          // 99.123, String number
+
+console.log(new Number(99).valueOf());              // 99
