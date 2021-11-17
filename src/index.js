@@ -5,18 +5,16 @@ app.innerHTML = '<h1>JavaScript Basics</h1>';
 
 // ----
 
-// literal syntax
-const literalNumber = 99;
-console.log(literalNumber);
+console.log(0.1 + 0.2 === 0.3);
+console.log(0.1 + 0.2);
 
-// function syntax
-// perform a type-conversion in a non-constructor context
-console.log(Number(55));          // 55
-console.log(Number('33'));        // 33
-console.log(Number('44px'));      // NaN
+console.log(100 / 3);
+console.log(33.333333333333336 * 3);
 
-// constructor syntax, creates a wrapper Object
-// avoid using it
-console.log(Number(66));          // 66
-console.log(new Number(66));      // Number {66}
-console.log(new Number('44px'));  // Number {NaN}
+const price = 9.33;
+const quantity = 3;
+console.log(price * quantity);
+
+const anotherPrice = 9.33 * 100;
+const anotherQuantity = 3;
+console.log((anotherPrice * anotherQuantity) / 100);
