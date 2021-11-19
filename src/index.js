@@ -5,18 +5,28 @@ app.innerHTML = '<h1>JavaScript Basics</h1>';
 
 // ----
 
-console.log(Number.prototype);
-console.log(99.12345678);
+// literal syntax
+console.log('Pizza');                             // Pizza string literal
+console.log("Pizza");                             // Pizza string literal
 
-console.log((99.12345678).toFixed());               // 99, String number
-console.log((99.12345678).toFixed(2));              // 99.12, String number
-console.log((99.12345678).toFixed(4));              // 99.1235, String number
-console.log(99..toFixed(4));                        // 99.0000, String number
-console.log((99).toFixed(4));                       // 99.0000, String number
-console.log(parseFloat((99.12345678).toFixed(4)));  // 99.1235, Number number
+console.log("Pizza 'Hello!'");                    // Pizza 'Hello!'
+console.log('Pizza \'Hello!\'');                  // Pizza 'Hello!'
+console.log('Pizza "Hello!"');                    // Pizza "Hello!"
 
-console.log((99.12345678).toPrecision(2));          // 99, String number
-console.log((99.12345678).toPrecision(4));          // 99.12, String number
-console.log((99.12345678).toPrecision(5));          // 99.123, String number
+const pizza = 'Pepperoni';
+console.log('Pizza is: ' + pizza + '!');          // Pizza is: Pepperoni!
+console.log(`Pizza is: ${pizza}!`);               // Pizza is: Pepperoni!, new syntax from ES2015
+console.log(`
+Pizza is: 
+${pizza}!
+`);
 
-console.log(new Number(99).valueOf());              // 99
+// function syntax
+console.log(String(55 + 11), String(55 + '11'));  // 66 5511
+console.log(String({ name: 'Pepperoni'}));        // [object Object]
+console.log(String([1, 2, 3, 4]));                // 1,2,3,4
+console.log(String([1, 2, 3, 4]).toString());     // 1,2,3,4
+
+// constructor syntax, creates a wrapper Object
+// avoid using it
+console.log(new String(55));                      // String {'55'}
