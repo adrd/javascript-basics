@@ -5,19 +5,14 @@ app.innerHTML = '<h1>JavaScript Basics</h1>';
 
 // ----
 
-console.log(true, false);
+// true = literal Boolean
+// false = literal Boolean
+console.log(typeof true);                          // boolean, gives back literal String representation of Boolean
+console.log(typeof false);                         // boolean, gives back literal String representation of Boolean
 
-const arg = '';
-console.log(Boolean(arg));       // false
+console.log(true instanceof Boolean);              // false, gives back literal Boolean
 
-const arg1 = 'X';
-console.log(Boolean(arg1));      // true
+console.log(new Boolean('') instanceof Boolean);   // true, gives back literal Boolean
+console.log(new Boolean('X') instanceof Boolean);  // false, gives back literal Boolean
 
-console.log(!!arg1);             // true
-
-console.log(Boolean([]));        // true
-console.log(Boolean({}));        // true
-
-console.log(new Boolean(arg1));  // Boolean {true}
-
-
+console.log(Object.prototype.toString.call(true)); // [object Boolean], this is the safe way to detect if something is of a particular type
