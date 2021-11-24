@@ -5,39 +5,22 @@ app.innerHTML = '<h1>JavaScript Basics</h1>';
 
 // ----
 
-// hoisting
-console.log(makeCar);                  // makeCar function is available, applies toString() to function object/instance and displays the function code
-console.log(makeCarExpression);        // undefined
-console.log(makeCarExpression1);       // undefined
-console.log(makeCarArrow);             // undefined
-console.log(makeCarArrowShorthand);    // undefined
+// name = parameter
+// default parameter value = new to ES2015
+function makeCar(name = 'Porsche') {
+    // if (!name) {
+    //     name = 'Porsche';
+    // }
 
-// 1: Function Declaration
-function makeCar() {
-    console.log('Making a car...');
+    // or i can do the following
+    // name = name || 'Porsche';
+
+    console.log(`Making a car: ${name.toUpperCase()}`);
 }
 
-console.log(makeCar);    // applies toString() to function object/instance and displays the function code
-
-makeCar();
-
-// 2: Function Expression (anonymous or named)
-// const makeCarExpression = function makeCar() {};
-const makeCarExpression = function () {};             // this is an example of an anonymous function
-console.log(makeCarExpression.name);                  // makeCarExpression, returns const name, which is considered to be function name, 
-                                                      
-const makeCarExpression1 = function myFunction() {};
-console.log(makeCarExpression1.name);                 // myFunction, returns function name 
-
-console.log(makeCar.name);                            // makeCar, returns function name
-
-// 3: Arrow Function (new to ES2015)
-const makeCarArrow = () => {
-    console.log('Making car inside Arrow...');
-};
-
-makeCarArrow();
-
-const makeCarArrowShorthand = () => console.log('Short');
-
-makeCarArrowShorthand();
+// strings = arguments
+makeCar('Porsche');    // PORSCHE
+makeCar('Ferrari');    // FERRARI
+makeCar();             // PORSCHE
+makeCar('');           // PORSCHE only when used with if (!name) or name || 'Porsche' otherwise display ''
+makeCar('xxx');        // XXX 
