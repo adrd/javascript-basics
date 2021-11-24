@@ -5,39 +5,37 @@ app.innerHTML = '<h1>JavaScript Basics</h1>';
 
 // ----
 
-// using function declaration
-function makeCarPrice(...params){
-    const total = params.reduce((prev, next) => prev + next);
+// scope 1
+const anotherID = '1234abcd';
 
-    // console.log(`Total ${total} USD`);
-    
-    return total;
+function makeCarPartID(id) {
+    // scope 2
+    console.log(id, anotherID);
+
+    // function anotherFunction() {
+    //     // scope 3
+    //     const someID = 99;
+    //     console.log(someID);
+    // }
 }
 
-const totalPrice = makeCarPrice(11, 22, 33, 44, 55, 66);
+makeCarPartID('x8YdsZ12');
 
-console.log(`Total ${totalPrice} USD`);
-console.log(`Total ${makeCarPrice(11, 22, 33, 44, 55, 66)} USD`);
+function makeCarPartIDNew(id) {
+    const theId = `CAR_PART_${id}`;
 
-// using arrow function
-const makeCarPriceArrow = (...params) => {
-    const total = params.reduce((prev, next) => prev + next);
-    return total;
+    return function(name) {
+        // console.log(theId);
+        return `${theId}_${name.toUpperCase()}`;
+    };
 }
 
-const totalPriceArrow = makeCarPriceArrow(99, 77, 44);
-console.log(`Total ${totalPriceArrow} USD`);
-console.log(`Total ${makeCarPriceArrow(99, 77, 44)} USD`);
+const carPartId = makeCarPartIDNew('x8YdsZ12');
+console.log(carPartId('Left Door'));
+console.log(carPartId('Right Door'));
+console.log(carPartId('Windscreen'));
 
-// using arrow function, other variant
-const makeCarPriceArrow2 = (...params) => {
-    return params.reduce((prev, next) => prev + next);
-}
-
-console.log(`Total ${makeCarPriceArrow2(99, 77, 44)} USD`);
-
-// using arrow function, other variant
-const makeCarPriceArrow3 = (...params) => params.reduce((prev, next) => prev + next);
-
-console.log(`Total ${makeCarPriceArrow3(99, 77, 44)} USD`);
-
+const anotherCarPartId = makeCarPartIDNew('7hs9zSaq0');
+console.log(anotherCarPartId('Left Door'));
+console.log(anotherCarPartId('Right Door'));
+console.log(anotherCarPartId('Windscreen'));
