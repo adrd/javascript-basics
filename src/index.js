@@ -5,22 +5,29 @@ app.innerHTML = '<h1>JavaScript Basics</h1>';
 
 // ----
 
-// name = parameter
-// default parameter value = new to ES2015
-function makeCar(name = 'Porsche') {
-    // if (!name) {
-    //     name = 'Porsche';
-    // }
+// old way of doing things, using arguments object
+function makeCarPrice() {
+    console.log(Array.isArray(arguments));        // false
+    console.log(arguments);
 
-    // or i can do the following
-    // name = name || 'Porsche';
+    Array.from(arguments).forEach(value => console.log(value));
 
-    console.log(`Making a car: ${name.toUpperCase()}`);
+    const total = Array.from(arguments).reduce((prev, next) => {
+        return prev + next;
+    })
+
+    console.log(`Total ${total} USD`);
 }
 
-// strings = arguments
-makeCar('Porsche');    // PORSCHE
-makeCar('Ferrari');    // FERRARI
-makeCar();             // PORSCHE
-makeCar('');           // PORSCHE only when used with if (!name) or name || 'Porsche' otherwise display ''
-makeCar('xxx');        // XXX 
+makeCarPrice(11, 44, 55, 99, 22);
+
+// new way of doing things, using rest parameters
+function makeCarPriceRest(...params){
+    console.log(Array.isArray(params));           // true
+    
+    const total = params.reduce((prev, next) => prev + next);
+
+    console.log(`Total ${total} USD`);
+}
+
+makeCarPriceRest(99, 88, 77, 11, 44);
