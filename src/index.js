@@ -11,25 +11,35 @@ const drink = {
     price: {
         sale: 99,
         full: 129
-    }
+    },
+    // hasOwnProperty() {
+    //     return false;
+    // }
 };
 
-console.log(drink);
+// value exists
 
-const myDrinkId = drink.id;
-const myDrinkName = drink.name;
-const myDrinkPriceSale = drink.price.sale;
-console.log(myDrinkId, myDrinkName, myDrinkPriceSale);  // xhs8Pla Lemonade 99
+if (drink.id) {
+    console.log(drink.id);
+}
 
-// const id = 1234;
+for (const prop in drink) {
+    console.log(prop);                  // id, name, price
+    console.log(drink[prop]);           // xhs8Pla, Lemonade, {sale: 99, full: 129}
 
-const { 
-    id: myId, 
-    price: { full },
-    ...rest
-} = drink;  // Destructuring, new to ES2015
-console.log(myId, full, rest);                   // xhs8Pla Lemonade 129
+    if (drink[prop] === 'Lemonade') {
+        console.log(drink[prop]);       // Lemonade
+    }
+}
 
-const { sale, full: fullPrice } = drink.price;
-console.log(sale, fullPrice);                    // 99 129
+console.log(Object.values(drink));      // ['xhs8Pla', 'Lemonade', {sale: 99, full: 129}]
 
+const hasLemonade = Object.values(drink).includes('Lemonade')
+console.log(hasLemonade);               // true
+
+// property exists
+
+console.log(drink.hasOwnProperty('name'));                         // true
+console.log(Object.prototype.hasOwnProperty.call(drink, 'name'));  // true, NOTE: this is the safest way to use hasOwnProperty() function
+console.log(Object.keys(drink));                                   // ['id', 'name', 'price']
+console.log(Object.keys(drink).includes('name'));                  // true
