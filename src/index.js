@@ -14,48 +14,18 @@ const drink = {
     },
 };
 
-// for..in loop
-for (const prop in drink) {
-    console.log(prop);             // id, name, price
-}
+console.log(Object.keys(drink));   // keys() function doesn't return properties from the prototype object
 
-for (const prop in drink) {
-    console.log(drink[prop]);       // xhs8Pla, Lemonade, {sale: 99, full: 129}
-}
+Object.keys(drink).forEach(function (prop, index) {
+    console.log(prop, index);                                      // id 0, name 1, price 2
+});
 
-for (const prop in drink) {
-    const value = drink[prop];
-    //if (typeof value !== 'string') {
-    if (Object.prototype.toString.call(value) === '[object Object]') {
-        for (const key in value) {
-            console.log(key);               // sale, full
-        }
-    }
-}
+Object.keys(drink).forEach(function (prop) {
+    console.log(drink[prop]);                                      // xhs8Pla, Lemonade, {sale: 99, full: 129}
+});
 
-console.log('------------')
+Object.keys(drink).forEach(prop => console.log(drink[prop]));      // xhs8Pla, Lemonade, {sale: 99, full: 129}
 
-const drink1 = {
-    name: 'Lemonade',
-    price: {
-        sale: 99,
-        full: 129
-    },
-};
+console.log('-----------')
 
-const drinkWithId = Object.create(drink1);        // creates a new object having as prototype object drink1 object
-drinkWithId.id = 'xhs8Pla';
-console.log(drinkWithId);
-
-console.log('name' in drinkWithId);               // true
-
-for (const prop in drinkWithId) {
-    console.log(prop);                            // id, name, price, here in operator looks up properties from the prototype object
-}
-
-for (const prop in drinkWithId) {
-    if (drinkWithId.hasOwnProperty(prop)) {       // here we test if the property is indeed on the object itself
-        console.log(prop, drinkWithId[prop]);     // id xhs8Pla        
-    }
-    
-}
+console.log(Object.entries(drink));   // [Array(2), Array(2), Array(2)], 0: (2) ['id', 'xhs8Pla'], 1: (2) ['name', 'Lemonade'], (2) ['price', {…}]
