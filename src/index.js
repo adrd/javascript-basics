@@ -14,14 +14,19 @@ const drink = {
     },
 };
 
-// drink.brand = 'My Drinks Co.';
-// drink.name = 'Peach';
+// slow operation
+// delete drink.id;
+// console.log(drink);    // {name: 'Lemonade', price: {…}}
 
-function propUpdate(prop, value) {
-    drink[prop] = value;
+// for performance reasons these is the approach you may want to take
+drink.id = undefined;
+
+if (drink.id) {
+    console.log('HAS id...');
 }
 
-propUpdate('brand', 'My Drinks Co.');
-propUpdate('name', 'Peach');
+// console.log(drink.hasOwnProperty('id'));  // need to be mindfull about using hasOwnProperty() function
 
-console.log(drink);    // {id: 'xhs8Pla', name: 'Peach', price: {…}, brand: 'My Drinks Co.'}
+const { price, ...rest } = drink;
+console.log(price, rest, drink);             // {sale: 99, full: 129} {id: undefined, name: 'Lemonade'} {id: undefined, name: 'Lemonade', price: {…}}
+
