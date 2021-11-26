@@ -12,34 +12,16 @@ const drink = {
         sale: 99,
         full: 129
     },
-    // hasOwnProperty() {
-    //     return false;
-    // }
 };
 
-// value exists
+// drink.brand = 'My Drinks Co.';
+// drink.name = 'Peach';
 
-if (drink.id) {
-    console.log(drink.id);
+function propUpdate(prop, value) {
+    drink[prop] = value;
 }
 
-for (const prop in drink) {
-    console.log(prop);                  // id, name, price
-    console.log(drink[prop]);           // xhs8Pla, Lemonade, {sale: 99, full: 129}
+propUpdate('brand', 'My Drinks Co.');
+propUpdate('name', 'Peach');
 
-    if (drink[prop] === 'Lemonade') {
-        console.log(drink[prop]);       // Lemonade
-    }
-}
-
-console.log(Object.values(drink));      // ['xhs8Pla', 'Lemonade', {sale: 99, full: 129}]
-
-const hasLemonade = Object.values(drink).includes('Lemonade')
-console.log(hasLemonade);               // true
-
-// property exists
-
-console.log(drink.hasOwnProperty('name'));                         // true
-console.log(Object.prototype.hasOwnProperty.call(drink, 'name'));  // true, NOTE: this is the safest way to use hasOwnProperty() function
-console.log(Object.keys(drink));                                   // ['id', 'name', 'price']
-console.log(Object.keys(drink).includes('name'));                  // true
+console.log(drink);    // {id: 'xhs8Pla', name: 'Peach', price: {…}, brand: 'My Drinks Co.'}
