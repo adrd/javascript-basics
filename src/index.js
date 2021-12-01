@@ -5,32 +5,25 @@ app.innerHTML = "<h1>JavaScript Basics</h1>";
 
 // ----
 
-const drinks = ["Lemonade", "Lime", "Peach"];
+const drinks = [["Lemonade", 99], ["Lime", 99], ["Peach", 89]];
 
-const index = drinks.indexOf("Lime"); // indexOf() is case sensitive
+// shallow copy
 
-console.log(index); // 1
+const drinksShallowClone = [...drinks];
+// const drinksShallowClone = drinks.slice();
+// const drinksShallowClone = Array.from(drinks); // new to ES2015
+drinksShallowClone[0][1] = 1000;
 
-if (index !== -1) {
-  console.log(drinks[index]); // Lime
-}
+console.log(drinksShallowClone); // 1000
+console.log(drinks);             // 1000
 
-const included = drinks.includes("Peach"); // includes is case sensitive
-console.log(included); // true
+console.log("----------------");
 
-console.log(drinks);
+// deep copy
 
-console.log("-----------");
+const drinksDeepClone = JSON.parse(JSON.stringify(drinks));
 
-const drinksWithId = [
-  { id: 1, name: "Lemonade" },
-  { id: 2, name: "Lime" },
-  { id: 3, name: "Peach" },
-];
+drinksDeepClone[0][1] = 1500;
 
-const idIndex = drinksWithId.findIndex((value) => value.name === "Peach");
-console.log(idIndex); // 2
-console.log(drinksWithId[idIndex]); // {id: 3, name: 'Peach'}
-
-const foundItem = drinksWithId.find((value) => value.name === "Peach");
-console.log(foundItem); // {id: 3, name: 'Peach'}
+console.log(drinksDeepClone); // 1500
+console.log(drinks);          // 1000
