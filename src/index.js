@@ -8,35 +8,26 @@ app.innerHTML = "<h1>JavaScript Basics</h1>";
 const drinks = ["Lemonade", "Lime", "Peach"];
 
 // beginning
-drinks.unshift("Water");                     // ['Water', 'Lemonade', 'Lime', 'Peach'], mutable, this function mutates array
+const removed = drinks.shift(); // mutable
 
-const newDrinksArray = ["Pepsi", ...drinks]; // immutable
-// newDrinksArray.length = 0;
-console.log(newDrinksArray);                 // ['Pepsi', 'Water', 'Lemonade', 'Lime', 'Peach']
+console.log(removed); // Lemonade
+console.log(drinks);  // ['Lime', 'Peach']
 
-console.log("------------------");
-
-// middle
-const index = 1;
-drinks.splice(index, 0, "Mirinda"); // mutable
-console.log(drinks);                // ['Water', 'Mirinda', 'Lemonade', 'Lime', 'Peach']
-
-const newDrinksArrayMiddle = [
-  ...drinks.splice(0, index),       // beginning with 0 index remove 1 item (index value), return the item deleted, 'Water'
-  "Mojito",
-  ...drinks.splice(index - 1),      // from 0 index removes all the items till the end and return all the items removed, 'Mirinda', 'Lemonade', 'Lime', 'Peach'
-]; // immutable
-console.log(newDrinksArrayMiddle);  // ['Water', 'Mojito', 'Mirinda', 'Lemonade', 'Lime', 'Peach']
-
-console.log(drinks); // [], empty array
-
-console.log("------------------");
+console.log("------------");
 
 // end
-drinks.push("Cola"); // mutable, this function mutates array
-drinks.push("Beer");
+const removedFromEnd = drinks.pop(); // mutable
 
-console.log(drinks); // ['Cola', 'Beer']
+console.log(removedFromEnd); // Peach
+console.log(drinks);         // ['Lime']
 
-const newDrinksArrayEnd = [...drinks, "SevenUp"]; // immutable
-console.log(newDrinksArrayEnd);                   // ['Cola', 'Beer', 'SevenUp']
+console.log("------------");
+
+const drinksNew = ["Lemonade", "Lime", "Peach"];
+
+// slice = remove item(s) anywhere
+const index = drinksNew.length - 1;
+const newDrinks = [...drinksNew.slice(0, index), ...drinksNew.slice(index + 1)]; // slice is immutable
+
+console.log(newDrinks); // ['Lemonade', 'Lime']
+console.log(drinksNew); // ['Lemonade', 'Lime', 'Peach']
