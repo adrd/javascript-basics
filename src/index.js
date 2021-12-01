@@ -5,23 +5,27 @@ app.innerHTML = "<h1>JavaScript Basics</h1>";
 
 // ----
 
-const drinks = [["Lemonade", 99], ["Lime", 99]];
-const newDrinks = [["Peach", 89]];
+const drinks = [
+  { name: "Lemonade", price: 79 },
+  { name: "Peach", price: 99 },
+  { name: "Lime", price: 89 },
+];
 
-// const merged = drinks.concat(newDrinks); // concat() is immutable
-const merged = [...drinks, ...newDrinks];
-console.log(merged);
+// console.log(drinks);
+console.log(drinks.reverse()); // mutable, 'Lime', 'Peach' 'Lemonade'
 
-console.log(drinks);
-console.log(newDrinks);
+const drinks1 = [
+  { name: "Lemonade", price: 79 },
+  { name: "Peach", price: 99 },
+  { name: "Lime", price: 89 },
+];
 
-console.log("------------");
+console.log(drinks1.sort((a, b) => a.price - b.price));    // mutable, ascending sorting
 
-const drinksArray = [["Lemonade", 99], ["Lime", 99]];
-const newDrinksArray = ["Peach", 89];
+const drinks2 = [
+  { name: "Lemonade", price: 79 },
+  { name: "Peach", price: 99 },
+  { name: "Lime", price: 89 },
+];
 
-const newMerged = [...drinksArray, newDrinksArray];
-
-console.log(newMerged);
-console.log(drinksArray);
-console.log(newDrinksArray);
+console.log(drinks2.sort((a, b) => b.price - a.price));    // mutable, descending sorting
