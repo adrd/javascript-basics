@@ -5,27 +5,12 @@ app.innerHTML = "<h1>JavaScript Basics</h1>";
 
 // ----
 
-const drinks = [
-  { name: "Lemonade", price: 79 },
-  { name: "Peach", price: 99 },
-  { name: "Lime", price: 89 },
-];
+console.log(typeof []); // object
 
-// console.log(drinks);
-console.log(drinks.reverse()); // mutable, 'Lime', 'Peach' 'Lemonade'
+console.log([] instanceof Array);          // true
+console.log(new Array() instanceof Array); // true
 
-const drinks1 = [
-  { name: "Lemonade", price: 79 },
-  { name: "Peach", price: 99 },
-  { name: "Lime", price: 89 },
-];
+console.log(Array.isArray([1, 2, 3, 4]));        // true, this is the best way to detect whether something is of type array
+console.log(Object.prototype.toString.call([])); // [object Array], this is also a best way to detect whether something is of type array
 
-console.log(drinks1.sort((a, b) => a.price - b.price));    // mutable, ascending sorting
-
-const drinks2 = [
-  { name: "Lemonade", price: 79 },
-  { name: "Peach", price: 99 },
-  { name: "Lime", price: 89 },
-];
-
-console.log(drinks2.sort((a, b) => b.price - a.price));    // mutable, descending sorting
+console.log(Array.isArray({})); // false
