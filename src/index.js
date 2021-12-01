@@ -5,25 +5,23 @@ app.innerHTML = "<h1>JavaScript Basics</h1>";
 
 // ----
 
-const drinks = [["Lemonade", 99], ["Lime", 99], ["Peach", 89]];
+const drinks = [["Lemonade", 99], ["Lime", 99]];
+const newDrinks = [["Peach", 89]];
 
-// shallow copy
+// const merged = drinks.concat(newDrinks); // concat() is immutable
+const merged = [...drinks, ...newDrinks];
+console.log(merged);
 
-const drinksShallowClone = [...drinks];
-// const drinksShallowClone = drinks.slice();
-// const drinksShallowClone = Array.from(drinks); // new to ES2015
-drinksShallowClone[0][1] = 1000;
+console.log(drinks);
+console.log(newDrinks);
 
-console.log(drinksShallowClone); // 1000
-console.log(drinks);             // 1000
+console.log("------------");
 
-console.log("----------------");
+const drinksArray = [["Lemonade", 99], ["Lime", 99]];
+const newDrinksArray = ["Peach", 89];
 
-// deep copy
+const newMerged = [...drinksArray, newDrinksArray];
 
-const drinksDeepClone = JSON.parse(JSON.stringify(drinks));
-
-drinksDeepClone[0][1] = 1500;
-
-console.log(drinksDeepClone); // 1500
-console.log(drinks);          // 1000
+console.log(newMerged);
+console.log(drinksArray);
+console.log(newDrinksArray);
