@@ -7,27 +7,30 @@ app.innerHTML = "<h1>JavaScript Basics</h1>";
 
 const drinks = ["Lemonade", "Lime", "Peach"];
 
-// beginning
-const removed = drinks.shift(); // mutable
+const index = drinks.indexOf("Lime"); // indexOf() is case sensitive
 
-console.log(removed); // Lemonade
-console.log(drinks);  // ['Lime', 'Peach']
+console.log(index); // 1
 
-console.log("------------");
+if (index !== -1) {
+  console.log(drinks[index]); // Lime
+}
 
-// end
-const removedFromEnd = drinks.pop(); // mutable
+const included = drinks.includes("Peach"); // includes is case sensitive
+console.log(included); // true
 
-console.log(removedFromEnd); // Peach
-console.log(drinks);         // ['Lime']
+console.log(drinks);
 
-console.log("------------");
+console.log("-----------");
 
-const drinksNew = ["Lemonade", "Lime", "Peach"];
+const drinksWithId = [
+  { id: 1, name: "Lemonade" },
+  { id: 2, name: "Lime" },
+  { id: 3, name: "Peach" },
+];
 
-// slice = remove item(s) anywhere
-const index = drinksNew.length - 1;
-const newDrinks = [...drinksNew.slice(0, index), ...drinksNew.slice(index + 1)]; // slice is immutable
+const idIndex = drinksWithId.findIndex((value) => value.name === "Peach");
+console.log(idIndex); // 2
+console.log(drinksWithId[idIndex]); // {id: 3, name: 'Peach'}
 
-console.log(newDrinks); // ['Lemonade', 'Lime']
-console.log(drinksNew); // ['Lemonade', 'Lime', 'Peach']
+const foundItem = drinksWithId.find((value) => value.name === "Peach");
+console.log(foundItem); // {id: 3, name: 'Peach'}
