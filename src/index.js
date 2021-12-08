@@ -12,39 +12,26 @@ const items = [
 ];
 
 // syntax
-// const returnValue = items.map((value, index, array), thisArg => {...})
+// const returnValue = items.filter((value, index, array), thisArg => {...});
 
-// const mapped = [1, 2, 3, 4, 5].map((x) => x * 2);
-// console.log(mapped);
+// const filtered = [true, true, false].filter(Boolean);
+// const filtered = [true, true, false].filter((value) => Boolean(value));
+// console.log(filtered);
 
 // declarative way
-const halfOfFries = items.map((item) => {
-  if (item.id === 2) {
-    return {
-      ...item,
-      price: item.price / 2,
-    };
-  }
-  return item;
-});
-
-console.log(halfOfFries);
+const expensiveItems = items.filter((item) => item.price > 199);
+console.log(expensiveItems);
 console.log(items);
 
-// imperative way
-// const halfOfFriesArray = [];
+// imperarative way
+// const expensiveItemsArray = [];
 
 // for (let index = 0; index < items.length; index++) {
 //   const item = items[index];
-//   if (item.id === 2) {
-//     halfOfFriesArray.push({
-//       ...item,
-//       price: item.price / 2,
-//     });
-//   } else {
-//     halfOfFriesArray.push(item);
+//   if (item.price > 199) {
+//     expensiveItemsArray.push(item);
 //   }
 // }
 
-// console.log(halfOfFriesArray);
+// console.log(expensiveItemsArray);
 // console.log(items);
