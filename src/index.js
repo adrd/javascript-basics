@@ -12,27 +12,39 @@ const items = [
 ];
 
 // syntax
-// items.forEach((value, index, array), thisArg => {...})
+// const returnValue = items.map((value, index, array), thisArg => {...})
 
-// ["a", "b", "c", "d"].forEach((item, index) => {
-//   console.log(item, index);
-// });
+// const mapped = [1, 2, 3, 4, 5].map((x) => x * 2);
+// console.log(mapped);
 
 // declarative way
-items.forEach((item) => {
-  app.innerHTML += `
-        <li>
-            ${item.id} ${item.name} ${(item.price / 100).toFixed(2)}
-        </li>
-    `; // toFixed() does rounding
+const halfOfFries = items.map((item) => {
+  if (item.id === 2) {
+    return {
+      ...item,
+      price: item.price / 2,
+    };
+  }
+  return item;
 });
 
+console.log(halfOfFries);
+console.log(items);
+
 // imperative way
+// const halfOfFriesArray = [];
+
 // for (let index = 0; index < items.length; index++) {
 //   const item = items[index];
-//   app.innerHTML += `
-//         <li>
-//             ${item.id} ${item.name} ${(item.price / 100).toFixed(2)}
-//         </li>
-//     `;
+//   if (item.id === 2) {
+//     halfOfFriesArray.push({
+//       ...item,
+//       price: item.price / 2,
+//     });
+//   } else {
+//     halfOfFriesArray.push(item);
+//   }
 // }
+
+// console.log(halfOfFriesArray);
+// console.log(items);
