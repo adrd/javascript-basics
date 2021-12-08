@@ -12,26 +12,37 @@ const items = [
 ];
 
 // syntax
-// const returnValue = items.filter((value, index, array), thisArg => {...});
+// const reducedValue = items.reduce((prev, next, index, array) => {}, 0);
 
-// const filtered = [true, true, false].filter(Boolean);
-// const filtered = [true, true, false].filter((value) => Boolean(value));
-// console.log(filtered);
+// const reduced = [1, 2, 3, 4, 5].reduce((prev, next) => {
+//   console.log(prev, next);
+//   return prev + next;
+// }, 10); // 25
+// console.log(reduced);
 
 // declarative way
-const expensiveItems = items.filter((item) => item.price > 199);
-console.log(expensiveItems);
-console.log(items);
 
-// imperarative way
-// const expensiveItemsArray = [];
+// array of numbers
+// const reduced1 = items
+//   .map((item) => item.price)
+//   .reduce((prev, next) => prev + next);
+// console.log(reduced1); // 897
+
+// array of objects
+const reduced2 = items.reduce((prev, next) => prev + next.price, 0); // 897
+console.log(reduced2);
+
+// imperative way
+
+// let reducedValue;
+// let prev = 0;
 
 // for (let index = 0; index < items.length; index++) {
-//   const item = items[index];
-//   if (item.price > 199) {
-//     expensiveItemsArray.push(item);
-//   }
+//   const next = items[index];
+//   prev = prev + next.price;
 // }
 
-// console.log(expensiveItemsArray);
+// reducedValue = prev;
+// console.log(reducedValue); // 897
+
 // console.log(items);
