@@ -6,43 +6,38 @@ app.innerHTML = "<h1>JavaScript Basics</h1>";
 // ----
 
 const items = [
-  { id: 1, name: "Super Burger", price: 399 },
-  { id: 2, name: "Jumbo Fries", price: 199 },
-  { id: 3, name: "Big Slurp", price: 299 },
+  { id: 1, name: "Super Burger", price: 399, promo: false },
+  { id: 2, name: "Jumbo Fries", price: 199, promo: false },
+  { id: 3, name: "Big Slurp", price: 299, promo: true },
 ];
 
 // syntax
-// const reducedValue = items.reduce((prev, next, index, array) => {}, 0);
+// const returnValue = items.some((value, index, array) => {}, thisArg);
 
-// const reduced = [1, 2, 3, 4, 5].reduce((prev, next) => {
-//   console.log(prev, next);
-//   return prev + next;
-// }, 10); // 25
-// console.log(reduced);
+// const greaterThanOne = [1, 2, 3].some((x) => x > 1);
+// console.log(greaterThanOne); // true
 
 // declarative way
 
-// array of numbers
-// const reduced1 = items
-//   .map((item) => item.price)
-//   .reduce((prev, next) => prev + next);
-// console.log(reduced1); // 897
-
-// array of objects
-const reduced2 = items.reduce((prev, next) => prev + next.price, 0); // 897
-console.log(reduced2);
+const isInPromo = items.some((item) => item.promo);
+console.log(isInPromo); // true
 
 // imperative way
 
-// let reducedValue;
-// let prev = 0;
+// let isInPromo = false;
 
 // for (let index = 0; index < items.length; index++) {
-//   const next = items[index];
-//   prev = prev + next.price;
+//   const item = items[index];
+//   if (item.promo) {
+//     isInPromo = true;
+//     break;
+//   }
 // }
+// console.log(isInPromo); // true
 
-// reducedValue = prev;
-// console.log(reducedValue); // 897
+const total = isInPromo
+  ? 600
+  : items.reduce((prev, next) => prev + next.price, 0);
+console.log(total); // 600
 
 // console.log(items);
