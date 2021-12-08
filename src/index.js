@@ -12,32 +12,29 @@ const items = [
 ];
 
 // syntax
-// const returnValue = items.every((value, index, array) => {...}, thisArg);
+// const returnValue = items.find((value, index, array) => {...}, thisArg);
 
-// const isEveryValueTrue = [true, true, true].every(Boolean);
-// const isEveryValueTrue = [true, true, true].every((value) => Boolean(value));
-// console.log(isEveryValueTrue); // true
+// const found = ["a", "b", "c", "d"].find((x) => x === "a");
+// console.log(found);
 
 // declarative way
 
-const isInStock = items.every((item) => item.stock);
+const found = items.find((item) => item.id === 2);
 
 // imperative way
 
-// let isInStock = true;
+// let found; // undefined
 
 // for (let index = 0; index < items.length; index++) {
 //   const item = items[index];
-//   if (!item.stock) {
-//     isInStock = false;
+//   if (item.id === 2) {
+//     found = item;
 //     break;
 //   }
 // }
 
-if (!isInStock) {
-  console.log(
-    `Sorry, ${items.find((item) => !item.stock).name} is out of stock`
-  );
+if (found) {
+  console.log(`${found.name} ${(found.price / 100).toFixed(2)}`);
 }
 
 // console.log(items);
