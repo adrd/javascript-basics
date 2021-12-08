@@ -5,12 +5,12 @@ app.innerHTML = "<h1>JavaScript Basics</h1>";
 
 // ----
 
-console.log(typeof []); // object
+const drinks = ["Pepsi", "Lemonade", "Cola"];
 
-console.log([] instanceof Array);          // true
-console.log(new Array() instanceof Array); // true
-
-console.log(Array.isArray([1, 2, 3, 4]));        // true, this is the best way to detect whether something is of type array
-console.log(Object.prototype.toString.call([])); // [object Array], this is also a best way to detect whether something is of type array
-
-console.log(Array.isArray({})); // false
+for (let index = 0; index < drinks.length; index++) {
+  const drink = drinks[index];
+  if (drink === "Lemonade") {
+    console.log("Pour me a glass!");
+  }
+  // console.log(drinks[index]);
+}
